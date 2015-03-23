@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sampleapp</title>
+  <title>Medicaltp.org</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
 <header>
@@ -20,9 +19,7 @@
         <span class="icon-bar"></span>
       </button>
 
-
-
-    <a class="navbar-brand" href="#">SampleApp</a>
+    <a class="navbar-brand" href="../">Medicaltp</a>
     </div>
     <div class="collapse navbar-collapse" id="nav-menu-4">
     <ul class="nav navbar-nav navbar-right">
@@ -31,10 +28,9 @@
       <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
       <!-- *_path はUserモデルを作成したときに、
         deviseにより自動で作成されてますので、rake routesで確認できます -->
-      <li><%= link_to 'アカウント変更', edit_user_registration_path %> </li>
+      <li><%= link_to 'アカウント編集', edit_user_registration_path %> </li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
-
       <li><%= link_to "アカウント登録", new_user_registration_path %></li>
       <li><%= link_to "ログイン", new_user_session_path %></li>
     <% end %>
@@ -44,10 +40,11 @@
   </nav>
 </header>
 
+<%= yield %>
+
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
-<%= yield %>
 
 </body>
 </html>

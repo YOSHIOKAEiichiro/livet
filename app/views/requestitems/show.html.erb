@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>物資名:</strong>
+  <%= @requestitem.name %>
+</p>
+
+<p>
+  <strong>職員名:</strong>
+  <%= @requestitem.staff %>
+</p>
+
+<p>
+  <strong>メールアドレス:</strong>
+  <%= @requestitem.mail %>
+</p>
+
+<p>
+  <strong>グループID:</strong>
+  <%= @requestitem.groupid %>
+</p>
+
+<p>
+  <strong>数量:</strong>
+  <%= @requestitem.quantity %>
+</p>
+
+<p>
+  <strong>場所:</strong>
+  <%= @requestitem.place %>
+</p>
+
+<p>
+  <strong>備考:</strong>
+  <%= @requestitem.memo %>
+</p>
+
+<%= link_to '戻る', requestitems_path %>

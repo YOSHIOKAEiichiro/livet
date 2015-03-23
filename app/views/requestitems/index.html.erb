@@ -1,0 +1,37 @@
+<h1>Listing requestitems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>物資名</th>
+      <th>担当者</th>
+      <th>連絡先</th>
+      <th>グループID</th>
+      <th>数量</th>
+      <th>必要施設</th>
+      <th>備考</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requestitems.each do |requestitem| %>
+      <tr>
+        <td><%= requestitem.name %></td>
+        <td><%= requestitem.staff %></td>
+        <td><%= requestitem.mail %></td>
+        <td><%= requestitem.groupid %></td>
+        <td><%= requestitem.quantity %></td>
+        <td><%= requestitem.place %></td>
+        <td><%= requestitem.memo %></td>
+        <td><%= link_to 'Show', requestitem %></td>
+        <td><%= link_to 'Edit', edit_requestitem_path(requestitem) %></td>
+        <td><%= link_to 'Destroy', requestitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Requestitem', new_requestitem_path %>

@@ -1,0 +1,47 @@
+class RequestitemsController < ApplicationController
+  before_action :set_requestitem, only: [:show, :edit, :update, :destroy]
+
+  respond_to :html
+
+  def index
+    @requestitems = Requestitem.all
+    respond_with(@requestitems)
+  end
+
+  def show
+    respond_with(@requestitem)
+  end
+
+  def new
+    @requestitem = Requestitem.new
+    respond_with(@requestitem)
+  end
+
+  def edit
+  end
+
+  def create
+    @requestitem = Requestitem.new(requestitem_params)
+    @requestitem.save
+    respond_with(@requestitem)
+  end
+
+  def update
+    @requestitem.update(requestitem_params)
+    respond_with(@requestitem)
+  end
+
+  def destroy
+    @requestitem.destroy
+    respond_with(@requestitem)
+  end
+
+  private
+    def set_requestitem
+      @requestitem = Requestitem.find(params[:id])
+    end
+
+    def requestitem_params
+      params.require(:requestitem).permit(:name, :staff, :mail, :groupid, :quantity, :place, :memo)
+    end
+end

@@ -1,0 +1,47 @@
+<div class="container">
+<%= form_for(@requestitem) do |f| %>
+  <% if @requestitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@requestitem.errors.count, "error") %> prohibited this requestitem from being saved:</h2>
+
+      <ul>
+      <% @requestitem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name ,"名前"%><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :staff ,"担当者"%><br>
+    <%= f.text_field :staff %>
+  </div>
+  <div class="field">
+    <%= f.label :mail ,"連絡先"%><br>
+    <%= f.text_field :mail %>
+  </div>
+  <div class="field">
+    <%= f.label :groupid ,"グループID"%><br>
+    <%= f.number_field :groupid %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity ,"数量"%><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :place ,"必要施設"%><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :memo ,"備考"%><br>
+    <%= f.text_area :memo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
