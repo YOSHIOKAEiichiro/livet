@@ -57,9 +57,9 @@
             <tbody>
               <% @supportitems.each do |supportitem| %>
               <tr>
-                <td><%= supportitem.memo %></td>
-                <td><%= supportitem.quantity %></td>
-                <td><%= supportitem.place %></td>
+                <td><%= supportitem.requestitem.name %></td>
+                <td><%= supportitem.quantity %>/<%= supportitem.requestitem.quantity %></td>
+                <td><%= supportitem.requestitem.place %></td>
                 <td><%= link_to '修正', edit_supportitem_path(supportitem) %></td>
               </tr>
               <% end %>

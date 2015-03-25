@@ -26,7 +26,7 @@
         <td><%= requestitem.memo %></td>
         <td><%= link_to 'Show', requestitem %></td>
         <td><%= link_to 'Edit', edit_requestitem_path(requestitem) %></td>
-        <td><%= link_to 'Destroy', requestitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', requestitem, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>

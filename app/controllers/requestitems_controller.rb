@@ -11,7 +11,8 @@ class RequestitemsController < ApplicationController
   end
 
   def show
-    respond_with(@requestitem)
+    redirect_to(:controller => "home" ,:action =>"index")
+    # respond_with(@requestitem)
   end
 
   def new

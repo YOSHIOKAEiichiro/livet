@@ -17,7 +17,7 @@ class SupportitemsController < ApplicationController
     end
 
     def supportitem_params
-      params.require(:supportitem).permit(:staff, :mail, :groupid, :quantity, :place, :memo)
+      params.require(:supportitem).permit(:staff, :mail, :requestitem_id ,:groupid, :quantity, :place, :memo)
     end
 
 end
