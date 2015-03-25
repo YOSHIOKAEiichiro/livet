@@ -23,8 +23,9 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  username: sqale_e98c853030
-  password: 44d6a498f51a6f2c95091f5584f30d7d81da982693ce5fba
+  username: sqale_c66b536127
+  password: 1c28ce8f948c4a8da6acdea7a786df02173a670478a6fb29
   database: sqale_23c7cdfadc
   host: mysql001.sqale.jp
+
 
