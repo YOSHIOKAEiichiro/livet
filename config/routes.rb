@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :requestitems
-
+  resources :supportitems
   devise_for :users
   get 'home/index'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321061419) do
+ActiveRecord::Schema.define(version: 20150323125744) do
 
   create_table "requestitems", force: true do |t|
     t.string   "name"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20150321061419) do
     t.integer  "groupid"
     t.integer  "quantity"
     t.string   "place"
+    t.text     "memo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supportitems", force: true do |t|
+    t.integer  "requestitem_id"
+    t.string   "staff"
+    t.integer  "quantity"
+    t.string   "place"
+    t.string   "mail"
     t.text     "memo"
     t.datetime "created_at"
     t.datetime "updated_at"

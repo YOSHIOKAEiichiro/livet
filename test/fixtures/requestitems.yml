@@ -1,19 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  staff: MyString
-  mail: MyString
-  groupid: 1
-  quantity: 1
-  place: MyString
-  memo: MyText
-
-two:
-  name: MyString
-  staff: MyString
-  mail: MyString
-  groupid: 1
-  quantity: 1
-  place: MyString
-  memo: MyText
+<% 1.upto(10) do |n|%>
+  requestitem<%= n %>:
+    name: 要請物資<%= n %>
+    staff: 担当者<%= n %>
+    mail: mail<%= n %>@gmail.com
+    groupid: 1
+    quantity: <%= n %>
+    place: 場所<%= n %>
+    memo: <%= n %>
+<% end %>

@@ -1,0 +1,46 @@
+<div class="container">
+<%= form_for(@supportitems) do |f| %>
+  <% if @supportitems.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supportitems.errors.count, "error") %> prohibited this supportitems from being saved:</h2>
+
+      <ul>
+      <% @supportitems.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label "応援物資名" %><br>
+    <p><%= @requestitem.name %></p>
+  </div>
+  <div class="field">
+    <%= f.label "応援先施設" %><br>
+    <p><%= @requestitem.place %></p>
+  </div>
+  <div class="field">
+    <%= f.label :staff ,"担当者"%><br>
+    <%= f.text_field :staff %>
+  </div>
+  <div class="field">
+    <%= f.label :mail ,"連絡先"%><br>
+    <%= f.text_field :mail %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity ,"数量"%><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :place ,"施設"%><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :memo ,"備考"%><br>
+    <%= f.text_area :memo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

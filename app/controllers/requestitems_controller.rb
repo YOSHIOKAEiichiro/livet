@@ -5,7 +5,9 @@ class RequestitemsController < ApplicationController
 
   def index
     @requestitems = Requestitem.all
-    respond_with(@requestitems)
+    redirect_to(:controller => "home" ,:action =>"index")
+    # respond_with(@requestitems)
+
   end
 
   def show
@@ -28,7 +30,8 @@ class RequestitemsController < ApplicationController
 
   def update
     @requestitem.update(requestitem_params)
-    respond_with(@requestitem)
+    # respond_with(@requestitem)
+    redirect_to :action => "index"
   end
 
   def destroy

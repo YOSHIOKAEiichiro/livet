@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+<% 1.upto(10) do |n|%>
+  supportitem<%= n %>:
+    place: 場所%= n %>
+    mail: mail%= n %>@mail.com
+    memo: memo%= n %>
+<% end %>

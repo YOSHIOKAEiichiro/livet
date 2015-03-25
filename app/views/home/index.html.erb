@@ -12,6 +12,7 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
+                <th>ID</th>
                 <th>物資名</th>
                 <th>数量</th>
                 <th>必要施設</th>
@@ -22,11 +23,12 @@
             <tbody>
               <% @requestitems.each do |requestitem| %>
               <tr>
+                <td><%= requestitem.id %></td>
                 <td><%= requestitem.name %></td>
                 <td><%= requestitem.quantity %></td>
                 <td><%= requestitem.place %></td>
                 <td><%= link_to '修正', edit_requestitem_path(requestitem) %></td>
-                <td><%= link_to '応援', edit_requestitem_path(requestitem) %></td>
+                <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
               </tr>
               <% end %>
               
@@ -53,7 +55,14 @@
               </tr>
             </thead>
             <tbody>
-              
+              <% @supportitems.each do |supportitem| %>
+              <tr>
+                <td><%= supportitem.memo %></td>
+                <td><%= supportitem.quantity %></td>
+                <td><%= supportitem.place %></td>
+                <td><%= link_to '修正', edit_supportitem_path(supportitem) %></td>
+              </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
