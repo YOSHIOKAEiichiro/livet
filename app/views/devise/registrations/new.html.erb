@@ -10,7 +10,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password ,'パスワード' %>
       <% if @validatable %>
       <em>(<%= @minimum_password_length + 1 %>文字以上 )</em>
       <% end %><br />
@@ -18,7 +18,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation , 'パスワード確認'%><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
