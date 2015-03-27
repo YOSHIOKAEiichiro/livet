@@ -5,7 +5,7 @@
             <h2>必要物資一覧</h2>
           </div>
           <div class="col-xs-3 col-md-3">
-            <button class="btn btn-primary" onclick="location.href='./requestitems/new'">必要物資登録</button>
+            <%= button_to '必要物資登録',{:controller =>"requestitems",:action =>"new"} ,{:class =>"btn btn-primary",:method => :get}%>
           </div>
         </div>
         <div class="row">
@@ -16,22 +16,32 @@
                 <th>物資名</th>
                 <th>数量</th>
                 <th>必要施設</th>
+                <th>応援数</th>
+                <th></th>
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               <% @requestitems.each do |requestitem| %>
-              <tr>
-                <td><%= requestitem.id %></td>
-                <td><%= requestitem.name %></td>
-                <td><%= requestitem.quantity %></td>
-                <td><%= requestitem.place %></td>
-                <td><%= link_to '修正', edit_requestitem_path(requestitem) %></td>
-                <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
-              </tr>
-              <% end %>
-              
+                　<!-- 支援数が要請数を下回るものは赤表示-->
+                  <% if requestitem.total_quantity_requestitem != 0 && requestitem.total_quantity_requestitem < requestitem.quantity then %>
+                    <tr class ="warning">
+                  <% elsif requestitem.total_quantity_requestitem >= requestitem.quantity then %>
+                    <tr class ="success">
+                  <% else %>
+                    <tr class ="danger">
+                  <% end %> 
+                  <td><%= requestitem.id %></td>
+                  <td><%= requestitem.name %></td>
+                  <td><%= requestitem.quantity %></td>
+                  <td><%= requestitem.place %></td>
+                  <td><%= requestitem.total_quantity_requestitem %></td>
+                  <td><%= link_to '修正', edit_requestitem_path(requestitem) %></td>
+                  <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
+                  <td><%= link_to '削除', requestitem_path(requestitem) , :method => :delete%></td>
+                  </tr>
+                <% end %>              
             </tbody>
           </table>
         </div>

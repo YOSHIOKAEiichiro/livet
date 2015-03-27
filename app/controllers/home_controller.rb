@@ -4,7 +4,8 @@ class HomeController < ApplicationController
     @supportitems = Supportitem.all
   end
 
-  def show
-    @requestitems = Requestitem.all
+  def edit
+
   end
+
 end
