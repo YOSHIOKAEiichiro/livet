@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150323125744) do
     t.string   "name"
     t.string   "staff"
     t.string   "mail"
+    t.string   "area"
     t.integer  "groupid"
     t.integer  "quantity"
     t.string   "place"

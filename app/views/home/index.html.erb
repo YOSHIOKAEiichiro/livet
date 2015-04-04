@@ -1,6 +1,15 @@
       <% if user_signed_in? %> 
       <div  class="container">
         <div class="row">
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="./home/index.html">必要物資一覧</a></li>
+            <li role="presentation"><a href="./index2.html">応援物資一覧</a></li>
+          </ul>
+        </div>
+      </div>
+<div id="#page1">
+      <div  class="container">
+        <div class="row">
           <div class="col-xs-9 col-md-9">
             <h2>必要物資一覧</h2>
           </div>
@@ -12,10 +21,11 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>ID</th>
+                <th><%= link_to "ID", sort: "ID" %></th>
                 <th>物資名</th>
                 <th>数量</th>
-                <th>必要施設</th>
+                <td><%= link_to "都道府県", sort: "area" %></td>
+                <th><%= link_to "必要施設", sort: "place" %></th>
                 <th>応援数</th>
                 <th></th>
                 <th></th>
@@ -34,50 +44,26 @@
                   <% end %> 
                   <td><%= requestitem.id %></td>
                   <td><%= requestitem.name %></td>
-                  <td><%= requestitem.quantity %></td>
+                  <td><%= requestitem.quantity - requestitem.total_quantity_requestitem %></td>
+                  <td><%= requestitem.area %></td>
                   <td><%= requestitem.place %></td>
                   <td><%= requestitem.total_quantity_requestitem %></td>
-                  <td><%= link_to '修正', edit_requestitem_path(requestitem) %></td>
-                  <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
-                  <td><%= link_to '削除', requestitem_path(requestitem) , :method => :delete%></td>
+                  <% if requestitem.groupid === current_user.id then %>
+                    <td><%= link_to '修正', edit_requestitem_path(requestitem) %></td>
+                    <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
+                    <td><%= link_to '削除', requestitem_path(requestitem) , :method => :delete%></td>
+                  <% else %>
+                    <td></td>
+                    <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
+                    <td></td>
+                  <% end %>
                   </tr>
                 <% end %>              
             </tbody>
           </table>
         </div>
       </div>
-      <div  class="container">
-        <div class="row">
-          <div class="col-xs-8 col-md-8">
-            <h2>成立物資一覧</h2>
-          </div>
-          <div class="col-xs-4 col-md-4">
-          </div>
-        </div>
-        <div class="row">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>物資名</th>
-                <th>数量</th>
-                <th>必要施設</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @supportitems.each do |supportitem| %>
-              <tr>
-                <td><%= supportitem.requestitem.name %></td>
-                <td><%= supportitem.quantity %>/<%= supportitem.requestitem.quantity %></td>
-                <td><%= supportitem.requestitem.place %></td>
-                <td><%= link_to '修正', edit_supportitem_path(supportitem) %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
+</div>
 
       <% else %>
         <div class="jumbotron">

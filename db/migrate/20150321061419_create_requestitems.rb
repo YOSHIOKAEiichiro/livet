@@ -4,6 +4,7 @@ class CreateRequestitems < ActiveRecord::Migration
       t.string :name
       t.string :staff
       t.string :mail
+      t.string :area
       t.integer :groupid
       t.integer :quantity
       t.string :place

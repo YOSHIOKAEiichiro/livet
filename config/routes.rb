@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :supportitems
   devise_for :users
   get 'home/index'
-
+  get 'home/index2'
   get 'home/show'
 
   # The priority is based upon order of creation: first created -> highest priority.

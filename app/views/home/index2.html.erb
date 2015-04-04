@@ -1,0 +1,49 @@
+      <% if user_signed_in? %> 
+      <div  class="container">
+        <div class="row">
+          <ul class="nav nav-tabs">
+            <li role="presentation"><a href="./index.html">必要物資一覧</a></li>
+            <li role="presentation" class="active"><a href="./index2.html">応援物資一覧</a></li>
+          </ul>
+        </div>
+      </div>
+<div id="#page2">
+      <div  class="container">
+        <div class="row">
+          <div class="col-xs-8 col-md-8">
+            <h2>成立物資一覧</h2>
+          </div>
+          <div class="col-xs-4 col-md-4">
+          </div>
+        </div>
+        <div class="row">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>物資名</th>
+                <th>数量</th>
+                <th>必要施設</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @supportitems.each do |supportitem| %>
+              <tr>
+                <td><%= supportitem.requestitem.name %></td>
+                <td><%= supportitem.quantity %>/<%= supportitem.requestitem.quantity %></td>
+                <td><%= supportitem.requestitem.place %></td>
+                <td><%= link_to '修正', edit_supportitem_path(supportitem) %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
+
+      <% else %>
+        <div class="jumbotron">
+          <h1>medicaltp.org @ livet</h1>
+          <p>右上のメニューからログインしてください。</p>
+        </div>
+      <% end %>

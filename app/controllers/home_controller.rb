@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @requestitems = Requestitem.all
+    @requestitems = Requestitem.order(params[:sort])
+    @supportitems = Supportitem.all
+  end
+  def index2
+    @requestitems = Requestitem.order(params[:sort])
     @supportitems = Supportitem.all
   end
 

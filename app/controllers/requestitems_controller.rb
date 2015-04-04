@@ -46,6 +46,6 @@ class RequestitemsController < ApplicationController
     end
 
     def requestitem_params
-      params.require(:requestitem).permit(:name, :staff, :mail, :groupid, :quantity, :place, :memo)
+      params.require(:requestitem).permit(:name, :staff, :mail, :groupid, :quantity, :place, :memo ,:area)
     end
 end
