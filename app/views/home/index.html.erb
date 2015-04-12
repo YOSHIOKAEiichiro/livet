@@ -23,7 +23,7 @@
               <tr>
                 <th><%= link_to "ID", sort: "ID" %></th>
                 <th>物資名</th>
-                <th>数量</th>
+                <th>必要数（現支援数）</th>
                 <td><%= link_to "都道府県", sort: "area" %></td>
                 <th><%= link_to "必要施設", sort: "place" %></th>
                 <th>応援数</th>
@@ -44,7 +44,7 @@
                   <% end %> 
                   <td><%= requestitem.id %></td>
                   <td><%= requestitem.name %></td>
-                  <td><%= requestitem.quantity - requestitem.total_quantity_requestitem %></td>
+                  <td><%= requestitem.quantity %>(<%= requestitem.total_quantity_requestitem %>)</td>
                   <td><%= requestitem.area %></td>
                   <td><%= requestitem.place %></td>
                   <td><%= requestitem.total_quantity_requestitem %></td>
