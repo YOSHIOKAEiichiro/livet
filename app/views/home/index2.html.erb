@@ -32,7 +32,11 @@
                 <td><%= supportitem.requestitem.name %></td>
                 <td><%= supportitem.quantity %>/<%= supportitem.requestitem.quantity %></td>
                 <td><%= supportitem.requestitem.place %></td>
-                <td><%= link_to '修正', edit_supportitem_path(supportitem) %></td>
+                <% if supportitem.groupid === current_user.id then %>
+                  <td><%= link_to '修正', edit_supportitem_path(supportitem) %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
               </tr>
               <% end %>
             </tbody>

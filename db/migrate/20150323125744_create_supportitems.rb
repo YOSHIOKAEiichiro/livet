@@ -3,6 +3,7 @@ class CreateSupportitems < ActiveRecord::Migration
     create_table :supportitems do |t|
       t.integer :requestitem_id
       t.string :staff
+      t.integer :groupid
       t.integer :quantity
       t.string :place
       t.string :mail

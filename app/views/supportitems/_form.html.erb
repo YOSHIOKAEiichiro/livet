@@ -13,6 +13,7 @@
   <% end %>
   <div class="field">
     <%= f.hidden_field :requestitem_id ,value: @requestitem.id  %>
+    <%= f.hidden_field :groupid ,value: current_user.id  %>
   </div>
   <div class="field">
     <%= f.label "応援物資名" %><br>
