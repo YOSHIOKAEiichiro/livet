@@ -29,6 +29,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -55,6 +56,7 @@
                     <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
                     <td></td>
                   <% end %>
+                  <td><%= link_to '詳細',requestitem_path(requestitem) , :method => :GET %></td>
                   </tr>
                 <% end %>              
             </tbody>

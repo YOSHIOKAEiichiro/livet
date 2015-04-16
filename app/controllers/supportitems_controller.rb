@@ -14,6 +14,9 @@ class SupportitemsController < ApplicationController
       @requestitem = Requestitem.find(params[:item])
   end
 
+  def show
+     respond_with(@supportitem)
+  end
   def create
     @supportitems = Supportitem.new(supportitem_params)
     @supportitems.save

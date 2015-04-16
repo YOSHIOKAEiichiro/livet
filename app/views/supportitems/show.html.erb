@@ -1,34 +1,25 @@
 <div  class="container">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>物資名:</strong>
-  <%= @requestitem.name %>
-</p>
 
 <p>
   <strong>担当者:</strong>
-  <%= @requestitem.staff %>
+  <%= @supportitem.staff %>
 </p>
 
 <p>
   <strong>連絡先:</strong>
-  <%= @requestitem.mail %>
+  <%= @supportitem.mail %>
 </p>
 
 <p>
   <strong>数量:</strong>
-  <%= @requestitem.quantity %>
-</p>
-
-<p>
-  <strong>場所:</strong>
-  <%= @requestitem.place %>
+  <%= @supportitem.quantity %>
 </p>
 
 <p>
   <strong>備考:</strong>
-  <%= @requestitem.memo %>
+  <%= @supportitem.memo %>
 </p>
 
 <%= link_to '戻る', requestitems_path %>

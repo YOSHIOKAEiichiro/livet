@@ -11,5 +11,8 @@ class HomeController < ApplicationController
   def edit
 
   end
+  def show
+    respond_with(@requestitem)
+  end
 
 end
