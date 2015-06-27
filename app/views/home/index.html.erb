@@ -34,31 +34,33 @@
             </thead>
             <tbody>
               <% @requestitems.each do |requestitem| %>
-                　<!-- 支援数が要請数を下回るものは赤表示-->
-                  <% if requestitem.total_quantity_requestitem != 0 && requestitem.total_quantity_requestitem < requestitem.quantity then %>
-                    <tr class ="warning">
-                  <% elsif requestitem.total_quantity_requestitem >= requestitem.quantity then %>
-                    <tr class ="success">
-                  <% else %>
-                    <tr class ="danger">
-                  <% end %> 
-                  <td><%= requestitem.id %></td>
-                  <td><%= requestitem.name %></td>
-                  <td><%= requestitem.quantity - requestitem.total_quantity_requestitem%></td>
-                  <td><%= requestitem.area %></td>
-                  <td><%= requestitem.place %></td>
-                  <% if requestitem.groupid === current_user.id then %>
-                    <td><%= link_to '修正', edit_requestitem_path(requestitem) %></td>
-                    <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
-                    <td><%= link_to '削除', requestitem_path(requestitem) , :method => :delete%></td>
-                  <% else %>
-                    <td></td>
-                    <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
-                    <td></td>
-                  <% end %>
-                  <td><%= link_to '詳細',requestitem_path(requestitem) , :method => :GET %></td>
-                  </tr>
-                <% end %>              
+                  <% if requestitem.total_quantity_requestitem < requestitem.quantity then %>
+                  　<!-- 支援数が要請数を下回るものは赤表示-->
+                    <% if requestitem.total_quantity_requestitem != 0 && requestitem.total_quantity_requestitem < requestitem.quantity then %>
+                      <tr class ="warning">
+                    <% elsif requestitem.total_quantity_requestitem >= requestitem.quantity then %>
+                      <tr class ="success">
+                    <% else %>
+                      <tr class ="danger">
+                    <% end %> 
+                    <td><%= requestitem.id %></td>
+                    <td><%= requestitem.name %></td>
+                    <td><%= requestitem.quantity - requestitem.total_quantity_requestitem%></td>
+                    <td><%= requestitem.area %></td>
+                    <td><%= requestitem.place %></td>
+                    <% if requestitem.groupid === current_user.id then %>
+                      <td><%= link_to '修正', edit_requestitem_path(requestitem) %></td>
+                      <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
+                      <td><%= link_to '削除', requestitem_path(requestitem) , :method => :delete%></td>
+                    <% else %>
+                      <td></td>
+                      <td><%= link_to '応援',{:controller =>"supportitems",:action => "new",item:requestitem} %></td>
+                      <td></td>
+                    <% end %>
+                    <td><%= link_to '詳細',requestitem_path(requestitem) , :method => :GET %></td>
+                    </tr>
+                    <% end %>         
+                <% end %>     
             </tbody>
           </table>
         </div>
